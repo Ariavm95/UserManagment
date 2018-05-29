@@ -7,10 +7,8 @@ let capitalize = (str) => {
 export default class Profile extends React.Component {
   constructor(props){
     super(props)
-    console.log("MPPP")
     this.state = {
         orientation: '1',
-        
     };
     
     // Event Listener for orientation changes
@@ -58,11 +56,9 @@ export default class Profile extends React.Component {
                     />
                     <View style={{marginTop: 35, marginBottom:10}}>
                     {Object.keys(data).map(function(key, index) {
-                        
                             return  (key !== 'photo') && <View key={key} style={{flexDirection: 'row', justifyContent: 'center', alignItems: 'flex-start', height: height}}>
                             <Text style={[styles.col1, {width: WIDTH}]}>{capitalize(key)}</Text>
                             <Text style={[styles.col2, {width: WIDTH}]}>{data[key]}</Text>
-                        
                     </View>
                     })}
                 </View>
@@ -85,7 +81,6 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'flex-start',
   },
- 
   btn: {
     backgroundColor: 'rgba(255, 255, 255, 0.4)',
     height: 40,
@@ -105,10 +100,8 @@ const styles = StyleSheet.create({
       color: 'rgba(255, 255, 255, 0.8)'
   },
   col1:{
-    
     color: 'rgba(255, 255, 255, 0.9)',
     textAlign: 'left',
-    
     paddingLeft: 35,
     fontWeight: 'bold',
     marginLeft: 20,
@@ -117,6 +110,5 @@ const styles = StyleSheet.create({
     //marginLeft: DEVICE_WIDTH/2,
     color: 'rgba(255, 255, 255, 0.9)',
     textAlign: 'left',
-    
   }
 });

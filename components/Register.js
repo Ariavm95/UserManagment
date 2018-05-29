@@ -7,26 +7,13 @@ import firebase from 'firebase';
 export default class Register extends React.Component {
   constructor(props){
     super(props)
-    this.state = { username:'', password: '' , loading: true}
+    this.state = { username:'', password: '' , phone: '', age: '', blood: '', address: '', loading: true}
     this.register = this.register.bind(this)
     this.navi = this.navi.bind(this)
-    console.log("BOOOO")
     this.animatedValue = new Animated.Value(0)
     this.animate = this.animate.bind(this)
   }
 
-  /*static navigationOptions = ({ navigation, screenProps }) => ({
-    title: 'Login',
-    
-    headerTintColor: "#4f86aa",
-    headerStyle: {
-      backgroundColor: '#4f86aa'
-    },
-    headerTitleStyle: { color: '#ffdf81' },
-    headerBackTitleStyle: {fontSize: 15,},
-
-});*/
-//static navigationOptions = {
     static navigationOptions = ({ navigation, screenProps }) => ({
         title: 'Register',
         headerTintColor: "#f9df81",
@@ -36,9 +23,9 @@ export default class Register extends React.Component {
         headerTitleStyle: { color: '#f9df81' },
         headerBackTitleStyle: {fontSize: 15,},
     }
-);
+  );
 
-   componentDidMount(){
+  componentDidMount(){
     this.animate(Easing.in)
      // Initialize Firebase
       var config = {
@@ -50,15 +37,12 @@ export default class Register extends React.Component {
         messagingSenderId: "297050507757"
       };
       //firebase.initializeApp(config);
-      
   }
   navi = (data) => {
     this.props.navigation.navigate('Profile',{data})
   }
-  
 
   register =  () => {
-  
 
       // Get a reference to the database service
       var database = firebase.database();
@@ -69,35 +53,10 @@ export default class Register extends React.Component {
       var uu = this.refs.usern
       reset = ()=>{
         this.setState({username:'', password:'', phone: '', address: '', age: '', blood: ''})
-        //console.log(uu)
       }
-      // Sign in existing user
-       firebase.auth().signInWithEmailAndPassword(email, password).then(()=>{
-          var userId = firebase.auth().currentUser.uid
-          var ref = database.ref('users/' + userId);
-          ref.once('value').then(function(snapshot) {
-            var name = snapshot.child("name").val(); 
-            var address = snapshot.child("address").val(); 
-            var photo = snapshot.child("photo").val();
-            var age = snapshot.child("age").val();
-            var blood = snapshot.child("bloodType").val();
-            var phone = snapshot.child("phone").val();
-            var data = {name, address, phone, photo, age, blood}
-            console.log(name, address, phone, photo, blood)
-            reset()
-            //u.val = ''
-            nav(data)
-          });
-        }
-       )
-      .catch(function(err) {
-        // Handle errors
-      alert("Username and password do not match!")
-      });
-      
-  } 
 
- 
+  }
+
   animate (easing) {
     this.animatedValue.setValue(0)
       Animated.timing(
@@ -109,19 +68,14 @@ export default class Register extends React.Component {
         }
     ).start()
   }
- 
 
   render() {
-
     const paddingBottom = this.animatedValue.interpolate({
       inputRange: [0, 1],
       outputRange: [150, 6]
     })
-    
-    
-    
+
     return (
-      
         <View style={styles.container}>
         <Animated.View style={ {paddingBottom} }>
             <Text style={{fontSize: 20, color:"#ddd", fontWeight:'bold'}}></Text>
@@ -177,7 +131,6 @@ export default class Register extends React.Component {
             style={styles.input}
             placeholder='Adress'
             //ref={ref => (this.passwordInput = ref)}
-            
             value= {this.state.address}
             onChangeText = {(address) => this.setState({address})}
             autoCorrect={false}
@@ -199,7 +152,6 @@ export default class Register extends React.Component {
           <TouchableOpacity style={styles.btn} onPress={this.register}>
             <Text style={styles.btnText}>Sign up</Text>
           </TouchableOpacity>
-          
         </KeyboardAvoidingView>
       </View>
     );
@@ -245,5 +197,4 @@ const styles = StyleSheet.create({
   btnText: {
     color: 'white',
   },
-  
 });

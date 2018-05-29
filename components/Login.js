@@ -10,26 +10,13 @@ export default class Login extends React.Component {
     this.state = { username:'', password: '' , loading: true}
     this.login = this.login.bind(this)
     this.navi = this.navi.bind(this)
-    console.log("BOOOO")
     this.animatedValue = new Animated.Value(0)
     this.animate = this.animate.bind(this)
   }
 
-  /*static navigationOptions = ({ navigation, screenProps }) => ({
-    title: 'Login',
-    
-    headerTintColor: "#4f86aa",
-    headerStyle: {
-      backgroundColor: '#4f86aa'
-    },
-    headerTitleStyle: { color: '#ffdf81' },
-    headerBackTitleStyle: {fontSize: 15,},
-
-});*/
 static navigationOptions = {
   header: null // !!! Hide Header
 }
-
    componentDidMount(){
     this.animate(Easing.bounce)
      // Initialize Firebase
@@ -42,12 +29,10 @@ static navigationOptions = {
         messagingSenderId: "297050507757"
       };
       firebase.initializeApp(config);
-      
   }
   navi = (data) => {
     this.props.navigation.navigate('Profile',{data})
   }
-  
 
   login =  () => {
     /* fetch('http://blabla.com', 
@@ -67,7 +52,6 @@ static navigationOptions = {
       var uu = this.refs.usern
       reset = ()=>{
         this.setState({username:'', password:''})
-        //console.log(uu)
       }
       // Sign in existing user
        firebase.auth().signInWithEmailAndPassword(email, password).then(()=>{
@@ -125,9 +109,7 @@ static navigationOptions = {
       <KeyboardAvoidingView behavior='padding' style={styles.container}>
         <Animated.View style={ {marginBottom} }>
             <Text style={{fontSize: 30, color:"#ddd", fontWeight:'bold'}}>Login</Text>
-            
         </Animated.View>
-        
         <TextInput
             style={styles.input}
             placeholder='Username'
@@ -203,5 +185,4 @@ const styles = StyleSheet.create({
   btnText: {
     color: 'white',
   },
-  
 });
