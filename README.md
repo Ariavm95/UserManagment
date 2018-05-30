@@ -13,5 +13,5 @@ This app is only tested on iOS because the Android simulator for React Native is
 
 ## Screenshot
 <div align="center">
-    <img src="https://s3-us-west-2.amazonaws.com/picturesofaria/ezgif-4-4727f023e7.gif" width="400px"</img>
+    <img src="https://s3-us-west-2.amazonaws.com/picturesofaria/ezgif-4-0cfb4c9b52.gif" width="400px"</img>
 </div>
