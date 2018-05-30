@@ -5,7 +5,13 @@ This project is a React native mobile app which allows user to log in and also r
 ## Run the app
 ```
 cd [project folder]
+npm install
 npm start
 Enter 'i'
 ```
-This app is only tested on iOS because the Android simulator for React Native is not free.
+This app is only tested on iOS because the Android simulator for React Native is not free 😕
+
+## Screenshot
+<div align="center">
+    <img src="https://s3-us-west-2.amazonaws.com/picturesofaria/ezgif-4-4727f023e7.gif" width="400px"</img>
+</div>

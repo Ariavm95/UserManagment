@@ -1,5 +1,6 @@
 import React from 'react';
 import { StyleSheet, Text, View,TextInput, TouchableOpacity, Dimensions, Image, ScrollView, SafeAreaView } from 'react-native';
+import Icon from 'react-native-vector-icons/Ionicons';
 
 let capitalize = (str) => {
     return str.charAt(0).toUpperCase() + str.slice(1);
@@ -62,11 +63,14 @@ export default class Profile extends React.Component {
                     </View>
                     })}
                 </View>
-                    <TouchableOpacity style={styles.btn} >
-                        <Text style={styles.btnText}>Edit</Text>
-                    </TouchableOpacity>
+                   
             </View>
       </ScrollView>
+      <TouchableOpacity activeOpacity={0.5} onPress={this.SampleFunction} style={styles.TouchableOpacityStyle} >
+ 
+        <Icon name="md-create" style={styles.actionButtonIcon} />
+                    
+        </TouchableOpacity>
       </SafeAreaView>
     );
   }
@@ -110,5 +114,34 @@ const styles = StyleSheet.create({
     //marginLeft: DEVICE_WIDTH/2,
     color: 'rgba(255, 255, 255, 0.9)',
     textAlign: 'left',
+  },
+
+  TouchableOpacityStyle:{
+ 
+    position: 'absolute',
+    width: 50,
+    height: 50,
+    alignItems: 'center',
+    justifyContent: 'center',
+    right: 30,
+    bottom: 35,
+    backgroundColor: 'rgba(255, 255, 255, 0.4)',
+    borderRadius: 50,
+    shadowColor: 'black',
+    shadowOpacity: 1.0,
+    shadowOffset: {  width: 2,  height: 2,  },
+    shadowRadius: 5,
+  },
+ 
+  FloatingButtonStyle: {
+ 
+    resizeMode: 'contain',
+    width: 50,
+    height: 50,
+  },
+  actionButtonIcon: {
+    fontSize: 20,
+    height: 22,
+    color: 'rgba(255, 255, 255, 0.8)',
   }
 });

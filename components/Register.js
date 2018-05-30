@@ -71,8 +71,8 @@ export default class Register extends React.Component {
 
   render() {
     const paddingBottom = this.animatedValue.interpolate({
-      inputRange: [0, 1],
-      outputRange: [150, 6]
+      inputRange: [0, 0.5],
+      outputRange: [180, 18]
     })
 
     return (
